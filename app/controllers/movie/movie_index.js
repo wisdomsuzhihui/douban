@@ -43,11 +43,11 @@ exports.index = function (req, res) {
           res.json(results);
         }
       });
-  } else if (_filename) {
+  } else if (_fliterName) {
     // 如果是选电影/选电视剧区发送的分类切换请求
     Category
       .findOne({
-        name: _filename
+        name: _fliterName
       })
       .populate({
         paht: 'movies',
