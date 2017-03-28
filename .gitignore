@@ -1,0 +1,8 @@
+README.md
+/node_modules
+/assets
+/.sass-cache
+./npm-debug.log
+.DS_Store
+bower_components
+/public/libs
