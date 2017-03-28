@@ -6,13 +6,13 @@ block link
   meta(name="description" content="豆瓣电影提供最新的电影介绍及评论包括上映影片的影讯查询及购票服务。你可以记录想看、在看和看过的电影电视剧，顺便打分、写影评。根据你的口味，豆瓣电影会推荐好电影给你。")
   link(href="/libs/css/movie/movie_index.min.css",rel="stylesheet")
 block content
-  // 容器标签节点
+  //- 容器标签节点
   .wrapper
     .content
       .container-fluid
         .row
           .col-md-6.col-md-offset-1.screen
-            // 顶部轮播图标签节点
+            //- 顶部轮播图标签节点
             #scrollMoives
               each cat in categories
                 if cat.name === '正在上映'
@@ -40,11 +40,11 @@ block content
                             .caption
                               h5 #{item.title}
                               p: a.btn.btn-primary(href="/movie/#{item._id}" role="button" target="_blank") 观看预告片
-            // 顶部轮播图下方广告标签节点
+            //- 顶部轮播图下方广告标签节点
             .left-advertisement
               a(href="javascript:;")
                 img(src="/libs/images/movie/middleImg/1.jpg" alt="middelImg")
-            // 选电影/选电视剧标签节点
+            //- 选电影/选电视剧标签节点
             #fliterMovies.fliter-movies
               .screen
                 .class-top
@@ -70,7 +70,7 @@ block content
                     li
                       button.btn.btn-default 韩国
                   hr
-                // 热门电影标签节点
+                //- 热门电影标签节点
                 .screen-body
                   each cat in categories
                     if cat.name === '热门电影'
@@ -88,7 +88,7 @@ block content
                                   .caption
                                     h5 #{item.title}
                         a.more(href="javascript:;" role="button") 加载更多
-            // 热门推荐标签节点
+            //- 热门推荐标签节点
             #galleryFrames.panel.panel-default
               .panel-heading.screen-header
                 h4 热门推荐
@@ -154,14 +154,14 @@ block content
                           h5 豆瓣会客厅】王千源：用实力证明不凡
                       .slide-hd
                         p 在《解救吾先生》中扮演悍匪华子的王千源做客豆瓣会客厅。
-          // 电影院搜索标签节点
+          //- 电影院搜索标签节点
           .col-md-4
             .cinemas-search
               #citySearch.city
                 span 广州
                 i.glyphicon.glyphicon-triangle-bottom
                 #citiesList.cities-list(style="display:none")
-                  // 电影院标题分类名称
+                  //- 电影院标题分类名称
                   ul.cities-list-hd
                     - for(var i = 0; i < cityProgrammeList.length; i++)
                       if cityProgrammeList[i].name === '热门'
@@ -169,9 +169,9 @@ block content
                       else
                         li(index=i+1) #{cityProgrammeList[i].name}
                   hr
-                  // 全国城市分类列表
+                  //- 全国城市分类列表
                   .cities-list-bd
-                    // 热门城市列表
+                    //- 热门城市列表
                     - for(var j = 0; j < cityProgrammeList.length; j++)
                       if cityProgrammeList[j]
                         if cityProgrammeList[j].name === '热门'
@@ -193,7 +193,7 @@ block content
                                         - for(var z = 0; z < cityCategoryList[y].cities.length; z++)
                                           li: a.city-item(href="javascript:;") #{cityCategoryList[y].cities[z].name}
                                     hr
-              // 电影院搜索节点标签
+              //- 电影院搜索节点标签
               #citySug.city-suggestion
                 .city-suggestion-input
                   input(placeholder="搜索本地电影院")
@@ -201,18 +201,18 @@ block content
                 .city-suggestion-list(style="display:none;")
                   h5 可售票影院
                   ul.auto-tip
-            // 电影院下方广告节点标签
+            //- 电影院下方广告节点标签
             .right-advertisement
               a(href="/fullpage" target="_blank")
                 img(src="/libs/images/movie/advertisements/1.jpg")
-            // 电影活动部分节点标签
+            //- 电影活动部分节点标签
             .right-advertisementList
               h4 电影活动&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
               ul
                 li: a(href="javascript:;") 观影大福利！《头脑特工队》周边限量抢
                 li: a(href="javascript:;") 【有奖】怒吼你心中的怪兽(╰_╯)#
                 li: a(href="javascript:;") 资讯|《小王子》曝光终极预告海报
-            // 本周口碑榜节点标签
+            //- 本周口碑榜节点标签
             .billboard
               each cat in categories
                 if cat.name === '本周口碑榜'
@@ -229,9 +229,9 @@ block content
                                 td.order=i++
                                 td
                                   a(href="/movie/#{item._id}" target="_blank") #{item.title}
-            // 本周口碑榜下方广告部分节点标签
+            //- 本周口碑榜下方广告部分节点标签
             .right-advertisement
               a(href="javascript:;")
                 img(src="/libs/images/movie/advertisements/2.jpg")
-  // 电影首页JS脚本
+  //- 电影首页JS脚本
   script(src="/libs/scripts/js/movie/movie_index.min.js")
