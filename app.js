@@ -1,4 +1,6 @@
-var express = require('express'), // 加载express模块 
+"use strict";
+
+var express = require('express'), // 加载express模块
   path = require('path'), // 引入路径核心模块
   bodyParser = require('body-parser'), // 将表单post提交的body初始化成对象
   mongoose = require('mongoose'), // 引入mongoose模块
@@ -29,7 +31,6 @@ app.use(bodyParser.urlencoded({
 // 对application/json格式进行解析
 app.use(bodyParser.json());
 
-
 // models loading
 var models_path = __dirname + '/app/models'; // 模型所在路径
 
@@ -52,7 +53,6 @@ var walk = function (path) {
     });
 };
 walk(models_path); // 加载模型所在路径
-
 
 app.use(session({
   secret: 'douban', // 设置的secret字符串，来计算hash值并放在cookie中
