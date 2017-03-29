@@ -85,7 +85,7 @@ $(function () {
 									break;
 									//登录成功
 								default:
-									alert('登录成功!')
+									window.alert('登录成功!');
 									$('a')[0].click(); // 登录成功 点击电影首页按钮进入电影首页
 							}
 						});

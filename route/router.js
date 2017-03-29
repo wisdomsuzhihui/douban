@@ -12,22 +12,29 @@ module.exports = function (app) {
     // 将session中保存的用户名存储到本地变量中
     app.locals.user = req.session.user;
     next();
-  })
+  });
   /*============== 公共路由 ==============*/
 
   /*============== 用户信息 ==============*/
   // 用户注册路由
-  app.post('/user/signup', User.signup)
+  app.get('/signup', User.showSignup);
+  app.post('/user/signup', User.signup);
 
   // 用户登陆路由
+  app.get('/signin', User.showSignin);
   app.get('/user/signin', User.signin);
 
   // 用户登出路由
-  app.get('/logout', User.logout)
+  app.get('/logout', User.logout);
 
+  // 验证码路由
+  app.get('/captcha', User.captcha);
 
+  app.route('/admin/user/list')
+    .get(User.signinRequired, User.adminRequired, User.list)
+    .delete(User.del);
 
   /*============== 电影网站路由 ==============*/
   // 电影主页路由
   app.get('/', MovieIndex.index);
-}
+};
