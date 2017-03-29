@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose'),
   User = mongoose.model('User'), // 用户数据模型
-  // ccap = require('ccap')(), // 加载验证码模块
+  ccap = require('ccap')(), // 加载验证码模块
   captcha; // 申明验证码变量
 
 
@@ -45,9 +45,8 @@ exports.signup = function (req, res) {
       });
     } else {
       // 验证码存在
-      if (!captcha) {
-        // if (_captcha.toLowerCase() !== captcha.toLowerCase()) {
-        if (!_captcha) {
+      if (captcha) {
+        if (_captcha.toLowerCase() !== captcha.toLowerCase()) {
           res.json({
             data: 1
           }); // 输入的验证码不相等
@@ -114,8 +113,9 @@ exports.signin = function (req, res) {
       }
       // 密码匹配
       if (isMatch) {
-        if (!captcha) {
-          if (!_captcha) {
+        // 验证码存在
+        if (captcha) {
+          if (_captcha.toLowerCase() !== captcha.toLowerCase()) {
             res.json({
               data: 2 // 输入的验证码不相等
             });

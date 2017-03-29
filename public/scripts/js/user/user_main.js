@@ -209,5 +209,5 @@ $(function () {
 	$('.captcha-repeat,.captcha-show').on('click', function () {
 		captchaAjax();
 	});
-	// captchaAjax();
+	captchaAjax();
 });
